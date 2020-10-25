@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int count = 0;
+
+int countDigit(int n, int p) {			// RECURSIVE
+	
+	
+    
+    if(n <= 0) {	// EXIT Case
+    	return count;
+    }
+    
+    if(p == (n % 10)) {
+        count++;
+    }
+    
+    return countDigit(n/10, p);
+}
+
+
+int main() {
+
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    int posledna;
+	
+    
+    for(int i = 0; i < n; i++) {
+    	scanf("%d", &arr[i]);
+    }
+    
+    for(int i = 0; i < n; i++) {
+        posledna = arr[i] % 10;
+    	printf("%d ", countDigit(arr[i], posledna));
+        count = 0;
+    }
+
+	return 0;
+}
